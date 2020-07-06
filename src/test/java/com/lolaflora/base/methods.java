@@ -15,7 +15,6 @@ public class methods {
     ResourceBundle elementAdreses=ReadProperties.readProp("elements.properties");
     WebDriverWait wait = new WebDriverWait(driver,10);
 
-
     public WebElement findElementByKey(String key){
         WebElement element=null;
         try{

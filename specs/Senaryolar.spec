@@ -26,3 +26,7 @@ Başarısız Login
 * "passwordBar" elementine "yanlışşifre" degerini gir
 * "singInPageSingInBtn" elementine tıkla
 * "yanlisLoginHataMesajı" elementi sayfada yoksa "Hata Mesajı görülemedi" hata mesajını göster
+
+API Testi
+----
+* Api Testini Gerçekleştir

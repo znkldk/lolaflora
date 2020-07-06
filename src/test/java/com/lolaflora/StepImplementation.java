@@ -1,12 +1,23 @@
 package com.lolaflora;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.github.openjson.JSONArray;
+import com.github.openjson.JSONObject;
 import com.lolaflora.base.hook;
 import com.thoughtworks.gauge.Step;
 import com.lolaflora.base.methods;
+import groovy.json.JsonException;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import jdk.nashorn.internal.parser.JSONParser;
+import jdk.nashorn.internal.parser.Parser;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 //import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
@@ -41,6 +52,21 @@ public class StepImplementation extends methods {
 
     }
 
+    @Step("Tüm kadınlar cicektir.")
+    public void cicekSepetiAlAl() {
+
+        Response r =
+                given()
+                        .when()
+                        .get("https://www.getpostman.com/collections/5d9f72679607a60f23af");
+        String Code = r.jsonPath().getString("item.response.code[0]");
+        assertEquals("[200]",Code);
+        System.out.println(r.jsonPath().getString("item.response.body.result"));
+    }
+    @Step("Api Testini Gerçekleştir")
+    public void api() {
+        API.apiTest();
+    }
 
 
 }
